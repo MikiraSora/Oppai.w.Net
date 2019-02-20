@@ -62,7 +62,12 @@ namespace OppaiWNet.Wrap
         public float Acc
         {
             get => ezpp_accuracy_percent(handle);
-            set => ezpp_set_accuracy_percent(handle, value);
+            set
+            {
+                Count100=0;
+                Count50=0;
+                ezpp_set_accuracy_percent(handle, value);
+            }
         }
 
         public int Count300 => ezpp_n300(handle);
