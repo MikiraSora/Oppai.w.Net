@@ -3,9 +3,9 @@ using static OppaiWNet.Oppai;
 
 namespace OppaiWNet.Wrap
 {
-    public class Ezpp
+    public class Ezpp:IDisposable
     {
-        private IntPtr handle;
+        private IntPtr handle=IntPtr.Zero;
 
         private bool load_from_file = false;
 
@@ -24,20 +24,22 @@ namespace OppaiWNet.Wrap
 
         ~Ezpp()
         {
-            ezpp_free(handle);
+            Dispose();
         }
 
         #endregion Contruction/Deconstruction
 
         public void LoadFromFilePath(string osu_file_path)
         {
-            ezpp(handle, file_path=osu_file_path);
+            file_path=osu_file_path;
+            ezpp(handle, file_path);
             load_from_file=true;
         }
 
         public void LoadFromMemory(byte[] buffer)
         {
-            ezpp_data(handle, this.buffer=buffer, buffer.Length);
+            this.buffer=buffer;
+            ezpp_data(handle, buffer, buffer.Length);
             load_from_file=false;
         }
 
@@ -139,6 +141,15 @@ namespace OppaiWNet.Wrap
                 LoadFromFilePath(file_path);
             else
                 LoadFromMemory(buffer);
+        }
+
+        public void Dispose()
+        {
+            if (handle==IntPtr.Zero)
+                return;
+            
+            ezpp_free(handle);
+            handle=IntPtr.Zero;
         }
     }
 }

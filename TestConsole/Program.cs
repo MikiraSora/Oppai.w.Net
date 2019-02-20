@@ -15,11 +15,17 @@ namespace TestConsole
         static void Main(string[] args)
         {
             Ezpp info = new Ezpp(File.ReadAllBytes("a.osu"));
+            float[] accs = new[] { 92f, 94f, 96f, 98f, 100f };
 
-            Console.WriteLine(info.PP);
-            info.Acc=99;
-            info.ApplyChange();
-            Console.WriteLine(info.PP);
+            foreach (var acc in accs)
+            {
+                info.Acc=acc;
+                Console.WriteLine(info.Acc);
+                info.Mods=0;
+                info.Mode=0;
+                info.ApplyChange();
+                Console.WriteLine(acc+":"+info.PP.ToString("F2"));
+            }
 
             Console.ReadLine();
         }
