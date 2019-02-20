@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static OppaiWNet.Oppai;
 
 namespace OppaiWNet.Wrap
 {
     public class Ezpp
     {
-        IntPtr handle;
+        private IntPtr handle;
+        private string file_path;
 
         #region Contruction/Deconstruction
 
@@ -25,9 +22,9 @@ namespace OppaiWNet.Wrap
             ezpp_free(handle);
         }
 
-        #endregion
+        #endregion Contruction/Deconstruction
 
-        public void LoadOsuFile(string osu_file_path) => ezpp(handle, osu_file_path);
+        public void LoadOsuFile(string osu_file_path) => ezpp(handle, file_path=osu_file_path);
 
         public float PP => ezpp_pp(handle);
 
@@ -99,8 +96,10 @@ namespace OppaiWNet.Wrap
 
         public void SetEndTime(int end_time) => ezpp_set_end_time(handle, end_time);
 
-        public string TitleAvaliable {
-            get {
+        public string TitleAvaliable
+        {
+            get
+            {
                 var x = TitleUnicode;
                 return string.IsNullOrWhiteSpace(x) ? Title : x;
             }
@@ -113,6 +112,15 @@ namespace OppaiWNet.Wrap
                 var x = ArtistUnicode;
                 return string.IsNullOrWhiteSpace(x) ? Artist : x;
             }
+        }
+
+        public void ApplyChange()
+        {
+            /*
+             * 不知道为啥就算改了ACC也不会更新pp数值,
+             * 只能按照oppai-ng提供的examples/reuse.c那种方法来重新加载.
+             */
+            LoadOsuFile(file_path);
         }
     }
 }
