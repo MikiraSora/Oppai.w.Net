@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OppaiWNet
 {
-    public unsafe static class Utils
+    internal unsafe static class Utils
     {
         private static int Strlen(byte* p,int max_len=256)
         {
