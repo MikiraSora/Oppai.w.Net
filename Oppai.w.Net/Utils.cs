@@ -8,13 +8,12 @@ namespace OppaiWNet
 {
     internal unsafe static class Utils
     {
-        private static int Strlen(byte* p,int max_len=256)
+        private static int Strlen(byte* p)
         {
             int c = 0;
-            while (*p++!=0 && c<max_len)
-            {
+
+            while (*p++!=0)
                 c++;
-            }
 
             return c;
         }
