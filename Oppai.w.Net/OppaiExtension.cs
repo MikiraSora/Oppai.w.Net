@@ -18,11 +18,11 @@ namespace OppaiWNet
 
         public static string ezpp_artist_str(IntPtr handle) => Marshal.PtrToStringAnsi(new IntPtr(ezpp_artist(handle)));
 
-        public static string ezpp_artist_unicode_str(IntPtr handle) => Marshal.PtrToStringAnsi(new IntPtr(ezpp_artist_unicode(handle)));
+        public static string ezpp_artist_unicode_str(IntPtr handle) => Utils.Utf8Ptr2String(ezpp_artist_unicode(handle));
 
         public static string ezpp_title_str(IntPtr handle) => Marshal.PtrToStringAnsi(new IntPtr(ezpp_title(handle)));
 
-        public static string ezpp_title_unicode_str(IntPtr handle) => Marshal.PtrToStringAnsi(new IntPtr(ezpp_title_unicode(handle)));
+        public static string ezpp_title_unicode_str(IntPtr handle) => Utils.Utf8Ptr2String(ezpp_title_unicode(handle));
 
         public static string ezpp_version_str(IntPtr handle) => Marshal.PtrToStringAnsi(new IntPtr(ezpp_version(handle)));
 

@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OppaiWNet
+{
+    public unsafe static class Utils
+    {
+        private static int Strlen(byte* p)
+        {
+            int c = 0;
+            while (*p++!=0)
+            {
+                c++;
+            }
+
+            return c;
+        }
+
+        public static string Utf8Ptr2String(char* ptr)
+        {
+            var p = (byte*)ptr;
+            var len = Strlen(p);
+
+            return Encoding.UTF8.GetString(p, len);
+        }
+    }
+}

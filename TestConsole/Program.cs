@@ -11,6 +11,12 @@ namespace TestConsole
 {
     public unsafe class Program
     {
+        private static string Utf8Ptr2String(IntPtr ptr)
+        {
+            var p = Marshal.PtrToStringAnsi(ptr);
+            return Encoding.UTF8.GetString(Encoding.ASCII.GetBytes(p));
+        }
+
         static void Main(string[] args)
         {
             IntPtr ezpp = Oppai.ezpp_new();
@@ -24,8 +30,9 @@ namespace TestConsole
             Console.WriteLine(Oppai.ezpp_cs(ezpp));
             Console.WriteLine(Oppai.ezpp_hp(ezpp));
 
-            var o = Oppai.ezpp_title_unicode_str(ezpp);
-            Console.WriteLine(o);
+            Console.WriteLine(Oppai.ezpp_title_str(ezpp));
+            Console.WriteLine(Oppai.ezpp_artist_str(ezpp));
+            Console.WriteLine(Oppai.ezpp_creator_str(ezpp));
 
             Oppai.ezpp_free(ezpp);
 
