@@ -8,7 +8,7 @@ using ezpp_t = System.IntPtr;
 
 namespace OppaiWNet
 {
-    public unsafe static class Oppai
+    public unsafe static partial class Oppai
     {
         [DllImport("oppai.dll",CallingConvention =CallingConvention.Cdecl)]
         public static extern ezpp_t ezpp_new();
@@ -199,5 +199,14 @@ namespace OppaiWNet
 
         [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void ezpp_set_end_time(ezpp_t ez, float end);
+        
+        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern char* errstr(int err);
+
+        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void oppai_version(ref int major, ref int minor,ref int patch);
+
+        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern char* oppai_version_str();
     }
 }

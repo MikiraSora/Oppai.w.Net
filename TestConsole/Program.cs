@@ -14,6 +14,8 @@ namespace TestConsole
         static void Main(string[] args)
         {
             IntPtr ezpp = Oppai.ezpp_new();
+            
+            var ver=Oppai.oppai_version();
 
             Oppai.ezpp(ezpp, "a.osu");
 
@@ -22,7 +24,7 @@ namespace TestConsole
             Console.WriteLine(Oppai.ezpp_cs(ezpp));
             Console.WriteLine(Oppai.ezpp_hp(ezpp));
 
-            var o = Marshal.PtrToStringAnsi(new IntPtr(Oppai.ezpp_artist(ezpp)));
+            var o = Oppai.ezpp_title_unicode_str(ezpp);
             Console.WriteLine(o);
 
             Oppai.ezpp_free(ezpp);
