@@ -10,19 +10,19 @@ namespace OppaiWNet
 {
     public unsafe static partial class Oppai
     {
-        [DllImport("oppai.dll",CallingConvention =CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern ezpp_t ezpp_new();
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern void ezpp_free(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern int ezpp(ezpp_t ez, string map);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern float ezpp_pp(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern float ezpp_stars(ezpp_t ez);
 
         /*
@@ -53,160 +53,160 @@ namespace OppaiWNet
          * - if base_ar/od/cs are set, they will override the map's values
          */
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern int ezpp_data(ezpp_t ez, byte[] data, int data_size);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern float ezpp_aim_stars(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern float ezpp_speed_stars(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern float ezpp_aim_pp(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern float ezpp_speed_pp(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern float ezpp_acc_pp(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern float ezpp_accuracy_percent(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern int ezpp_n300(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern int ezpp_n100(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern int ezpp_n50(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern int ezpp_nmiss(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern float ezpp_ar(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern float ezpp_cs(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern float ezpp_od(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern float ezpp_hp(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern char* ezpp_artist(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern char* ezpp_artist_unicode(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern char* ezpp_title(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern char* ezpp_title_unicode(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern char* ezpp_version(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern char* ezpp_creator(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern int ezpp_ncircles(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern int ezpp_nsliders(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern int ezpp_nspinners(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern int ezpp_nobjects(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern float ezpp_odms(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern int ezpp_mode(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern int ezpp_combo(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern int ezpp_max_combo(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern int ezpp_mods(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern int ezpp_score_version(ezpp_t ez);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern float ezpp_time_at(ezpp_t ez, int i);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern float ezpp_strain_at(ezpp_t ez, int i, int difficulty_type);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern void ezpp_set_aim_stars(ezpp_t ez, float aim_stars);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern void ezpp_set_speed_stars(ezpp_t ez, float speed_stars);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern void ezpp_set_base_ar(ezpp_t ez, float ar);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern void ezpp_set_base_od(ezpp_t ez, float od);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern void ezpp_set_base_cs(ezpp_t ez, float cs);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern void ezpp_set_base_hp(ezpp_t ez, float hp);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern void ezpp_set_mode_override(ezpp_t ez, int mode_override);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern void ezpp_set_mode(ezpp_t ez, int mode);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern void ezpp_set_mods(ezpp_t ez, int mods);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern void ezpp_set_combo(ezpp_t ez, int combo);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern void ezpp_set_nmiss(ezpp_t ez, int nmiss);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern void ezpp_set_score_version(ezpp_t ez, int score_version);
         
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern void ezpp_set_accuracy_percent(ezpp_t ez, float accuracy_percent);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern void ezpp_set_accuracy(ezpp_t ez, int n100, int n50);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern void ezpp_set_end(ezpp_t ez, int end);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern void ezpp_set_end_time(ezpp_t ez, float end);
         
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern char* errstr(int err);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern void oppai_version(ref int major, ref int minor,ref int patch);
 
-        [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("oppai.dll")]
         public static extern char* oppai_version_str();
     }
 }
