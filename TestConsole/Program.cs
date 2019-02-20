@@ -14,13 +14,13 @@ namespace TestConsole
     {
         static void Main(string[] args)
         {
-            Ezpp info = new Ezpp("a.osu");
+            Ezpp info = new Ezpp(File.ReadAllBytes("a.osu"));
 
             Console.WriteLine(info.PP);
-            info.Acc=98;
+            info.Acc=99;
             info.ApplyChange();
             Console.WriteLine(info.PP);
-            
+
             Console.ReadLine();
         }
     }

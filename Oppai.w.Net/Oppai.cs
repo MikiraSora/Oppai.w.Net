@@ -54,7 +54,7 @@ namespace OppaiWNet
          */
 
         [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int ezpp_data(ezpp_t ez, string data, int data_size);
+        public static extern int ezpp_data(ezpp_t ez, byte[] data, int data_size);
 
         [DllImport("oppai.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern float ezpp_aim_stars(ezpp_t ez);

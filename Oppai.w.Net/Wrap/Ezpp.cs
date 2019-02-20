@@ -6,7 +6,11 @@ namespace OppaiWNet.Wrap
     public class Ezpp
     {
         private IntPtr handle;
+
+        private bool load_from_file = false;
+
         private string file_path;
+        private byte[] buffer;
 
         #region Contruction/Deconstruction
 
@@ -15,7 +19,8 @@ namespace OppaiWNet.Wrap
             handle=ezpp_new();
         }
 
-        public Ezpp(string osu_file_path) : this() => LoadOsuFile(osu_file_path);
+        public Ezpp(string osu_file_path) : this() => LoadFromFilePath(osu_file_path);
+        public Ezpp(byte[] osu_content_buffer) : this() => LoadFromMemory(osu_content_buffer);
 
         ~Ezpp()
         {
@@ -24,7 +29,17 @@ namespace OppaiWNet.Wrap
 
         #endregion Contruction/Deconstruction
 
-        public void LoadOsuFile(string osu_file_path) => ezpp(handle, file_path=osu_file_path);
+        public void LoadFromFilePath(string osu_file_path)
+        {
+            ezpp(handle, file_path=osu_file_path);
+            load_from_file=true;
+        }
+
+        public void LoadFromMemory(byte[] buffer)
+        {
+            ezpp_data(handle, this.buffer=buffer, buffer.Length);
+            load_from_file=false;
+        }
 
         public float PP => ezpp_pp(handle);
 
@@ -120,7 +135,10 @@ namespace OppaiWNet.Wrap
              * 不知道为啥就算改了ACC也不会更新pp数值,
              * 只能按照oppai-ng提供的examples/reuse.c那种方法来重新加载.
              */
-            LoadOsuFile(file_path);
+            if (load_from_file)
+                LoadFromFilePath(file_path);
+            else
+                LoadFromMemory(buffer);
         }
     }
 }
