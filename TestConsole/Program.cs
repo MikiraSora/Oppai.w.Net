@@ -1,4 +1,5 @@
 ﻿using OppaiWNet;
+using OppaiWNet.Wrap;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,14 +14,15 @@ namespace TestConsole
     {
         static void Main(string[] args)
         {
-            var ptr = Oppai.ezpp_new();
-            Oppai.ezpp(ptr, "a.osu");
+            var info = new Ezpp("a.osu");
+            //auto recalc and you dont need to call ApplyChanged() manually.
+            info.AutoCalculate=true;
+            
+            Console.WriteLine(info.PP);
+            info.Acc=98;
 
-            Console.WriteLine($"VER:{Oppai.oppai_version_str_str()}");
-            Console.WriteLine($"HP:{Oppai.ezpp_hp(ptr)}");
-            Console.WriteLine($"CS:{Oppai.ezpp_cs(ptr)}");
-            Console.WriteLine($"OD:{Oppai.ezpp_od(ptr)}");
-            Console.WriteLine($"AR:{Oppai.ezpp_ar(ptr)}");
+            //info.ApplyChange();
+            Console.WriteLine(info.PP);
 
             Console.ReadLine();
         }

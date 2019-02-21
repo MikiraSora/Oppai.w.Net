@@ -43,6 +43,8 @@ namespace OppaiWNet.Wrap
             load_from_file=false;
         }
 
+        public bool AutoCalculate { get => ezpp_autocalc(handle)!=0; set => ezpp_set_autocalc(handle, value ? 1 : 0); }
+
         public float PP => ezpp_pp(handle);
 
         public float DiffRate => ezpp_stars(handle);

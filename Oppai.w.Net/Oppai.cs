@@ -24,6 +24,12 @@ namespace OppaiWNet
 
         [DllImport("oppai.dll")]
         public static extern float ezpp_stars(ezpp_t ez);
+    
+        [DllImport("oppai.dll")]
+        public static extern void ezpp_set_autocalc(ezpp_t ez, int autocalc);
+
+        [DllImport("oppai.dll")]
+        public static extern int ezpp_autocalc(ezpp_t ez);
 
         /*
          * the above is all you need for basic usage. below are some advanced api's
