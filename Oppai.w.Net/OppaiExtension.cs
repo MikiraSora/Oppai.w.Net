@@ -9,6 +9,30 @@ namespace OppaiWNet
 {
     public static unsafe partial class Oppai
     {
+        const string OPPAI_LOWEST_VER = "3.1.0";
+
+        static Oppai()
+        {
+            try
+            {
+                var cur_ver_str = string.Join(".", oppai_version());
+                var cur_version = new Version(cur_ver_str);
+                var chk_version = new Version(OPPAI_LOWEST_VER);
+
+                if (cur_version<chk_version)
+                {
+                    //this oppai.dll can't be used
+                    throw new Exception($"Oppai.w.Net requires oppai version {OPPAI_LOWEST_VER} or latest");
+                }
+            }
+            catch 
+            {
+#if DEBUG
+                throw;
+#endif
+            }
+        }
+
         public static int[] oppai_version()
         {
             var ver = new int[3];
@@ -24,6 +48,11 @@ namespace OppaiWNet
 
         public static string ezpp_title_unicode_str(IntPtr handle) => Utils.Utf8Ptr2String(ezpp_title_unicode(handle));
 
+        /// <summary>
+        /// get beatmap difficult name.
+        /// </summary>
+        /// <param name="handle"></param>
+        /// <returns></returns>
         public static string ezpp_version_str(IntPtr handle) => Marshal.PtrToStringAnsi(new IntPtr(ezpp_version(handle)));
 
         public static string ezpp_creator_str(IntPtr handle) => Marshal.PtrToStringAnsi(new IntPtr(ezpp_creator(handle)));

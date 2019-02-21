@@ -1,12 +1,11 @@
-﻿using System;
+﻿using OppaiWNet;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using OppaiWNet;
-using OppaiWNet.Wrap;
 
 namespace TestConsole
 {
@@ -14,17 +13,14 @@ namespace TestConsole
     {
         static void Main(string[] args)
         {
-            Ezpp info = new Ezpp("a.osu");
-            float[] accs = new[] { 92f, 94f, 96f, 98f, 100f };
+            var ptr = Oppai.ezpp_new();
+            Oppai.ezpp(ptr, "a.osu");
 
-            foreach (var acc in accs)
-            {
-                info.Acc=acc;
-                info.Mods=0;
-                info.Mode=0;
-                info.ApplyChange();
-                Console.WriteLine($"{info.Acc} : {info.PP.ToString("F2")}");
-            }
+            Console.WriteLine($"VER:{Oppai.oppai_version_str_str()}");
+            Console.WriteLine($"HP:{Oppai.ezpp_hp(ptr)}");
+            Console.WriteLine($"CS:{Oppai.ezpp_cs(ptr)}");
+            Console.WriteLine($"OD:{Oppai.ezpp_od(ptr)}");
+            Console.WriteLine($"AR:{Oppai.ezpp_ar(ptr)}");
 
             Console.ReadLine();
         }
